@@ -1,8 +1,7 @@
-﻿using CarPal.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarPal.Data
+namespace CarPal.Models
 {
     public class Rental
     {
