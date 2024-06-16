@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarPal.Models
 {
@@ -25,5 +26,8 @@ namespace CarPal.Models
         [Required]
         [StringLength(20)]
         public string Status { get; set; }
+
+        [NotMapped]
+        public string FullName => $"{Make} {Model} ({Year})";
     }
 }
