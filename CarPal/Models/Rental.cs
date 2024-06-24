@@ -21,9 +21,9 @@ namespace CarPal.Models
 
         [Required]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal TotalCost { get; set; }
+        public decimal? TotalCost { get; set; }
 
-        public Vehicle Vehicle { get; set; }
-        public Customer Customer { get; set; }
+        public virtual Vehicle? Vehicle { get; set; }
+        public virtual Customer? Customer { get; set; }
     }
 }
