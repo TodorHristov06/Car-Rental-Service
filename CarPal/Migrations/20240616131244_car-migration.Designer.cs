@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarPal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240616124735_car-migration")]
+    [Migration("20240616131244_car-migration")]
     partial class carmigration
     {
         /// <inheritdoc />

@@ -49,14 +49,12 @@ namespace CarPal.Controllers
         // GET: Rentals/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "DriverLicenseNumber");
-            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "Make");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "FullName");
             return View();
         }
 
         // POST: Rentals/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RentalId,VehicleId,CustomerId,StartDate,EndDate,TotalCost")] Rental rental)
@@ -67,8 +65,8 @@ namespace CarPal.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "DriverLicenseNumber", rental.CustomerId);
-            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "Make", rental.VehicleId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", rental.CustomerId);
+            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "FullName", rental.VehicleId);
             return View(rental);
         }
 
@@ -85,14 +83,12 @@ namespace CarPal.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "DriverLicenseNumber", rental.CustomerId);
-            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "Make", rental.VehicleId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", rental.CustomerId);
+            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "FullName", rental.VehicleId);
             return View(rental);
         }
 
         // POST: Rentals/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("RentalId,VehicleId,CustomerId,StartDate,EndDate,TotalCost")] Rental rental)
@@ -122,8 +118,8 @@ namespace CarPal.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "DriverLicenseNumber", rental.CustomerId);
-            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "Make", rental.VehicleId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", rental.CustomerId);
+            ViewData["VehicleId"] = new SelectList(_context.Vehicles, "VehicleId", "FullName", rental.VehicleId);
             return View(rental);
         }
 
